@@ -1,6 +1,6 @@
 # bioBash
 
-# insertGenome.sh
+## insertGenome.sh
 
 Usage: instertGenome.sh <nomalGenome.fa, required> <insert.fa required>
 
