@@ -5,6 +5,7 @@
 Usage: instertGenome.sh <nomalGenome.fa, required> <insert.fa required>
 
 For example: 
+
     $ cat genome.fa
     >chr1
     1234567891
