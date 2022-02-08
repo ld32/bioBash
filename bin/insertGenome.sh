@@ -59,29 +59,32 @@ while read -r line || [ -n "$line" ]; do
         id=${line%% *}
         loc[$id]=${line##* }
     else 
+        line=${line// /}
         seq[$id]="${seq[$id]}$line"
     fi 
 done <$2
 
-echo > withInsert.$1;
+rm genomeWithInsert.fa 2>/dev/null
+
 while read -r line || [ -n "$line" ]; do
     if [[ ">" == "${line:0:1}" ]]; then 
         id=${line%% *} 
-        echo $line >> withInsert.$1
+        echo $line >> genomeWithInsert.fa
         [ ! -z "${loc[$id]}" ] && find=$id && len=0 || find=""
     else 
+        line=${line// /}
         if [ -z "$find" ]; then 
-            echo $line >> withInsert.$1
+            echo $line >> genomeWithInsert.fa
         else 
             len1=$((len + ${#line}))
             if [[ "$len1" -gt "${loc[$find]}" && ! -z "${loc[$id]}" ]]; then
                 breakpoint=$((${loc[$id]} - len - 1))
-                echo ${line:0:$breakpoint} >> withInsert.$1
-                echo ${seq[$find]} >> withInsert.$1
-                echo ${line:$breakpoint:${#line}} >> withInsert.$1
+                echo ${line:0:$breakpoint} >> genomeWithInsert.fa
+                echo ${seq[$find]} >> genomeWithInsert.fa
+                echo ${line:$breakpoint:${#line}} >> genomeWithInsert.fa
                 loc[$id]=""
             else 
-                echo $line >> withInsert.$1     
+                echo $line >> genomeWithInsert.fa
             fi
             len=$len1
         fi

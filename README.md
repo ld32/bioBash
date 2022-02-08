@@ -22,7 +22,7 @@ For example:
     >chr3  5
     ddd
 
-    $ cat withInsert.genome.fa
+    $ cat genomeWithInsert.fa
     >chr1
     1234567891
     >chr2
