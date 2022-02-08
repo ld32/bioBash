@@ -7,14 +7,14 @@
 # 
 
 #set -vx 
-set -e 
+#set -e 
 
 echoerr() { echo -e "$@" 1>&2; exit 1; }
 
 usage() { echo -e "Usage: \ninstertGenome.sh <nomalGenome.fa, required> <insert.fa required>\n";
     cat << 'EOF'
 For example: 
-    $ cat genome.fa
+    $ cat data/genome.fa
     >chr1
     1234567891
     >chr2
@@ -24,12 +24,13 @@ For example:
     >chr4
     123
     
-    $ cat insert.fa
+    $ cat data/insert.fa
     >chr2 4
     abc
     >chr3  5
     ddd
 
+    $ bin/instertGenome.sh data/genome.fa insert.fa
     $ cat withInsert.genome.fa
     >chr1
     1234567891
@@ -90,3 +91,4 @@ while read -r line || [ -n "$line" ]; do
         fi
     fi
 done <$1
+echo done
