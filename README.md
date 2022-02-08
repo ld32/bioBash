@@ -41,6 +41,7 @@ For example:
 
 ## modifyGTF.sh
 Usage: modifyGTF.sh <nomal.gtf, required> <insert.fa required>
+
 For example: 
     $ cat data/sample.gtf
     chr1	unknown	exon	3214482	3216968	.	-	.	gene_id "Xkr4"; gene_name "Xkr4"; p_id "P15391"; transcript_id "NM_001011874"; tss_id "TSS27105";
