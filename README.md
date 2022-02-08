@@ -36,3 +36,5 @@ For example:
     >chr4
     123
 
+[click here](www.google.com)
+
