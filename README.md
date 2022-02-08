@@ -1,13 +1,13 @@
 # bioBash
 
-[Insert reporter sequence to genome](##insertGenome.sh)
+- [Insert reporter sequence to genome](##insertGenome.sh)
 
-[Modify .gtf file to match up the insersion](##modifyGTF.sh)
+- [Modify .gtf file to match up the insersion](##modifyGTF.sh)
 
 ## insertGenome.sh
 Usage: instertGenome.sh <nomalGenome.fa, required> <insert.fa required>
 
-For example: 
+    For example: 
     $ cat genome.fa
     >chr1
     1234567891
@@ -42,7 +42,7 @@ For example:
 ## modifyGTF.sh
 Usage: modifyGTF.sh <nomal.gtf, required> <insert.fa required>
 
-For example: 
+    For example: 
     $ cat data/sample.gtf
     chr1	unknown	exon	3214482	3216968	.	-	.	gene_id "Xkr4"; gene_name "Xkr4"; p_id "P15391"; transcript_id "NM_001011874"; tss_id "TSS27105";
     chr1	unknown	stop_codon	3216022	3216024	.	-	.	gene_id "Xkr4"; gene_name "Xkr4"; p_id "P15391"; transcript_id "NM_001011874"; tss_id "TSS27105";
