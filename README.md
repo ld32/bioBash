@@ -1,10 +1,11 @@
-# bioBash
+bioBash
+=============================
 
-- [Insert reporter sequence to genome](##insertGenome.sh)
+- [Insert reporter sequence to genome](#insertGenome.sh)
 
-- [Modify .gtf file to match up the insersion](##modifyGTF.sh)
+- [Modify .gtf file to match up the insersion](#modifyGTF.sh)
 
-## insertGenome.sh
+# insertGenome.sh
 Usage: instertGenome.sh <nomalGenome.fa, required> <insert.fa required>
 
     For example: 
@@ -39,7 +40,7 @@ Usage: instertGenome.sh <nomalGenome.fa, required> <insert.fa required>
     >chr4
     123
 
-## modifyGTF.sh
+# modifyGTF.sh
 Usage: modifyGTF.sh <nomal.gtf, required> <insert.fa required>
 
     For example: 
