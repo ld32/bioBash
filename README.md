@@ -22,7 +22,7 @@ Usage: instertGenome.sh <nomalGenome.fa, required> <insert.fa required>
     $ cat insert.fa
     >chr2 4
     
-    >chr3 - 5  # - means the insert is reverse strand
+    >chr3 - 5  # '-' means the insert is reverse strand
     cat
     
     $ bin/instertGenome.sh data/genome.fa insert.fa
