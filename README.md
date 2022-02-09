@@ -21,9 +21,9 @@ Usage: instertGenome.sh <nomalGenome.fa, required> <insert.fa required>
     
     $ cat insert.fa
     >chr2 4
-    abc
-    >chr3  5
-    ddd
+    
+    >chr3 - 5  # - means the insert is reverse strand
+    cat
     
     $ bin/instertGenome.sh data/genome.fa insert.fa
     $ cat genomeWithInsert.fa
@@ -35,7 +35,7 @@ Usage: instertGenome.sh <nomalGenome.fa, required> <insert.fa required>
     4567892
     >chr3
     1234
-    ddd
+    atg
     567893
     >chr4
     123
@@ -59,7 +59,7 @@ Usage: modifyGTF.sh <nomal.gtf, required> <insert.fa required>
     $ cat data/insert.fa
     >chr2 4
     abc
-    >chr3  5
+    >chr3 - 5
     ddd
     
     $ bin/instertGenome.sh data/sample.gtf data/insert.fa
