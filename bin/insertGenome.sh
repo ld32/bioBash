@@ -24,10 +24,10 @@ For example:
     >chr4
     123
     
-    $ cat data/insert.fa
-    >chr2 4
-    abc
-    >chr3  5
+    $ cat data/insert.fa # - means the insert is reversed completment sequence
+    >chr2 - 4
+    cat
+    >chr3 5
     ddd
 
     $ bin/instertGenome.sh data/genome.fa insert.fa
@@ -36,7 +36,7 @@ For example:
     1234567891
     >chr2
     123
-    abc
+    atg
     4567892
     >chr3
     1234
@@ -55,35 +55,41 @@ echo Running $0 "$@" 1>&2
 declare -A seq
 declare -A loc
 
+strand=""
 while read -r line || [ -n "$line" ]; do
-    if [[ ">" == "${line:0:1}" ]]; then 
+    if [[ ">" == "${line:0:1}" ]]; then
+        [[ "$strand" == *-* ]] && seq[$id]=`echo ${seq[$id]} | tr ACGTacgt TGCAtgca | rev`        
         id=${line%% *}
+        strand=${line% *}; strand=${strand#* }
         loc[$id]=${line##* }
     else 
         line=${line// /}
         seq[$id]="${seq[$id]}$line"
     fi 
 done <$2
+[[ "$strand" == *-* ]] && seq[$id]=`echo ${seq[$id]} | tr ACGTacgt TGCAtgca | rev`
 
+find=""
 rm genomeWithInsert.fa 2>/dev/null
-
 while read -r line || [ -n "$line" ]; do
     if [[ ">" == "${line:0:1}" ]]; then 
         id=${line%% *} 
         echo $line >> genomeWithInsert.fa
-        [ ! -z "${loc[$id]}" ] && find=$id && len=0 || find=""
+        [ ! -z "${loc[$id]}" ] && find=$id && len=0 && location="${loc[$id]}" && doneIt="n" || find=""
     else 
-        line=${line// /}
         if [ -z "$find" ]; then 
             echo $line >> genomeWithInsert.fa
+        elif [ -z "$doneIt" ]; then 
+            echo $line >> genomeWithInsert.fa    
         else 
+            line=${line// /}
             len1=$((len + ${#line}))
-            if [[ "$len1" -gt "${loc[$find]}" && ! -z "${loc[$id]}" ]]; then
-                breakpoint=$((${loc[$id]} - len - 1))
+            if [ $len1 -gt $location ]; then
+                breakpoint=$(($location - $len - 1))
                 echo ${line:0:$breakpoint} >> genomeWithInsert.fa
                 echo ${seq[$find]} >> genomeWithInsert.fa
                 echo ${line:$breakpoint:${#line}} >> genomeWithInsert.fa
-                loc[$id]=""
+                doneIt=""
             else 
                 echo $line >> genomeWithInsert.fa
             fi

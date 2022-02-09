@@ -6,7 +6,7 @@
 # todo:
 # 
 
-set -vx 
+#set -vx 
 #set -e 
 
 echoerr() { echo -e "$@" 1>&2; exit 1; }
