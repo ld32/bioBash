@@ -24,6 +24,10 @@ Usage splitConfigs.py -i <inputfile.fasta> -o <outPrefix>
     >contig6
     GACTACTTTT
     
+    # To run it, you need python3 and biopython. Here are the command to install them:
+    $ module load module load miniconda3/4.10.3
+    $ conda create -n biopython biopython python=3.7.4
+    $ source activate biopython
     $ bin/splitContigs.py -i data/contigs.fasta -o out
     $ for i in out*; do echo $i; cat $i; done | less
     Content of out0.fasta
