@@ -8,6 +8,7 @@ bioScripts
 
 # splitContigs.py
 Usage splitConfigs.py -i <inputfile.fasta> -o <outPrefix>
+    
     For example: 
     $ cat data/contigs.fasta
     >contig1
