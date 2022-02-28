@@ -43,7 +43,7 @@ Usage splitConfigs.py -i <inputfile.fasta> -o <outPrefix>
     >contig4
     ACGTA
      
-# insertGenome.sh
+#insertGenome.sh
 Usage: instertGenome.sh <nomalGenome.fa, required> <insert.fa required>
 
     For example: 
@@ -78,7 +78,7 @@ Usage: instertGenome.sh <nomalGenome.fa, required> <insert.fa required>
     >chr4
     123
 
-# modifyGTF.sh
+#modifyGTF.sh
 Usage: modifyGTF.sh <nomal.gtf, required> <insert.fa required>
 
     For example: 
