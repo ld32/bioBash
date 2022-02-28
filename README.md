@@ -1,6 +1,6 @@
 bioScripts
 =============================
-- [Split contigs into subset, each of the subset has total bases no more than the longest sequence](#splitConfigs.py)
+- [Split contigs into subset, each of the subset has total bases no more than the longest contig](#splitConfigs.py)
 
 - [Insert reporter sequence to genome](#insertGenome.sh)
 
