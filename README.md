@@ -28,6 +28,8 @@ Usage splitConfigs.py -i <inputfile.fasta> -o <outPrefix>
     $ module load module load miniconda3/4.10.3
     $ conda create -n biopython biopython python=3.7.4
     $ source activate biopython
+    
+    # To run the software
     $ bin/splitContigs.py -i data/contigs.fasta -o out
     $ for i in out*; do echo $i; cat $i; done | less
     Content of out0.fasta
