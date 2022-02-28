@@ -1,4 +1,4 @@
-bioBash
+bioScripts
 =============================
 
 - [Insert reporter sequence to genome](#insertGenome.sh)
