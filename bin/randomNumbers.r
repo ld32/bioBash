@@ -1,4 +1,4 @@
-#!/usr/bin/env R
+#!/usr/bin/env Rscript
 numbers <- rep(-100, 15)
 numbers
 for (i in 1:15) { 
