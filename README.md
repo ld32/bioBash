@@ -65,7 +65,7 @@ Usage: instertGenome.sh <nomalGenome.fa, required> <insert.fa required>
     123
     
     $ cat data/insert.fa
-    >chr2 4
+    >chr2 + 4 # '+' means the insert is forward strand
     abc
     >chr3 - 5  # '-' means the insert is reverse strand
     cat
